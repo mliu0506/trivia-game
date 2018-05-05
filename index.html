@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Avengers Trivial Game</title>
+
+  <!-- Bootstrap Core min  CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  
+  <!-- Custom styles for this template -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+ 
+</head>
+
+<body>
+
+<!-- Navigation -->
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+      <li class="sidebar-brand">
+        <a href="#top" onclick="$('#menu-close').click();">Avengers Trivia Game</a>
+      </li>
+      <li>
+        <a href="#top" onclick="$('#menu-close').click();">Home</a>
+      </li>
+      <li>
+        <a href="#about" onclick="$('#menu-close').click();">About</a>
+      </li>
+      <li>
+        <a id="gameStart" href="#gamearea" onclick="$('#menu-close').click();">Game Start</a>
+      </li>
+     
+    </ul>
+  </nav>
+  <!-- Header -->
+    <header id="top" class="header">
+    <div class="text-vertical-center">
+      <a href="#about" class="btn btn-dark btn-lg">Infinity War</a>
+    </div>
+  </header>
+
+  
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 text-center" data-parallax="scroll">
+          <h2>Instruction of the Avengers's Trivia Game</h2>
+          <img src="assets/images/avengers_logo.gif" alt="" class="img-fluid rounded-circle img-about">
+          <p class="lead">There are 10 questions for player to select who is the actor of character in the Avengers Infintity War. 
+            <br>
+            Click Menu - Game Start to start the game!!!
+            <br>
+            GAME RULE
+            <br>
+            This trivia game will show only one question until the player answers it or their time runs out (after 15 sec).
+            <br>
+            <br>
+            If the player selects the correct answer, it shows a screen congratulating message for choosing the right option. 
+            After a few seconds, display the next question automatically.
+            <br>
+            If the player runs out of time, it will tell the player that time's up and display the correct answer. 
+            Wait a few seconds, then show the next question.
+            <br> 
+            If the player chooses the wrong answer, it will tell the player that they selected the wrong option and then display the correct answer. 
+            Wait a few seconds, then show the next question.
+            <br>
+            <br>
+            On the final screen, it shows the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+            <br>
+            <br>
+            <br>
+            </p>
+          
+        </div>
+    </div> <!-- .Row  completed-->
+      
+  </div>
+</section> <!--Close the .section-->
+
+
+  <!-- Game Section  -->
+  <section  id="gamearea" class="gamearea">
+      <!-- Callout -->
+      <aside id="portfolio" class="callout">
+          <div class="text-vertical-center">
+            <h1>Let Guess the Characters</h1>
+          </div>
+      </aside>
+    
+     <div class="container"></div>
+    
+    <!-- Game Start -->
+                  <!-- Question page -->
+        
+                  <div class="row col-12 justify-content-center align-item-center">
+                        <p class="lead" id="timeLeft"></p>
+                  </div>
+                  <div class="row col-12 justify-content-center align-item-center"> 
+                        <p class="lead" id="currentQuestion" ></p>      
+                  </div> 
+                  <div class="row col-12 justify-content-center align-item-center lead question" ></div>
+                  <div class="row col-12 justify-content-center align-item-center lead answerList" ></div>
+         
+                  
+                    <!-- Answer Page -->
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "message"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "correctedAnswer"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "gif"></div>
+                  
+                    <!-- Scoreboard -->
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "finalMessage"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "correctAnswers"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "incorrectAnswers"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "unanswered"></div>
+                    <div class="row col-12 justify-content-center align-item-center lead" id = "startOverBtn"></div>
+                 </div>
+              
+          </div>
+      </div>  <!-- /.row -->
+              <!-- /.container -->
+      </section>
+  
+  
+  
+  <!-- Bootstrap core JavaScript -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>  
+ 
+ <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+ 
+<
+
+
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <script type="text/javascript" src="assets/javascript/slide-bar.js"></script>
+  
+
+</body>
+
+</html>
