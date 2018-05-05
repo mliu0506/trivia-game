@@ -74,7 +74,7 @@ function newQuestion(){
 	
 	//sets up new questions & answerList
 	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
-	$('.question').html('<h3>' + triviaQuestions[currentQuestion].question + '</h3>');
+	$('.question').html(triviaQuestions[currentQuestion].question);
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div class="row col-12 justify-content-center lead">');
 		choices.text(triviaQuestions[currentQuestion].answerList[i]);
