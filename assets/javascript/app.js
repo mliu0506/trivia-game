@@ -122,7 +122,7 @@ function answerPage(){
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 	//giphy api
-	var giphyURL = "http://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=dc6zaTOxFJmzC"
+	var giphyURL = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=dc6zaTOxFJmzC"
 	$.ajax({url: giphyURL, method: 'GET'}).done(function(giphy){
 		var currentGif = giphy.data;
 		$.each(currentGif, function(index,value){
