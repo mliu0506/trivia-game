@@ -171,7 +171,7 @@ button {
 .about {
   background-color: black;
   color:white;
-  height: 500vh;
+ 
 }
 
 .img-about {
@@ -242,21 +242,21 @@ footer {
 /* =================== */
 /* xs < 768 */ 
 @media screen and (max-width: 767px) { 
-  body,.bout,.gamearea,.lead { font-size: 0.9em; }
+  body,.bout,.gamearea,.lead,h3 { font-size: 0.9em; }
   } 
 
 
 /* sm */ 
 @media screen and (min-width: 768px) { 
-  body,.bout,.gamearea,.lead { font-size: 1em; } 
+  body,.bout,.gamearea,.lead,h3 { font-size: 1em; } 
 } 
 
 /* md */ 
 @media screen and (min-width: 992px) { 
-  body,.bout,.gamearea,.lead { font-size: 1.1em; } 
+  body,.bout,.gamearea,.lead,h3 { font-size: 1.1em; } 
 } 
 
 /* lg */ 
 @media screen and (min-width: 1200px) { 
-  body,.bout,.gamearea,.lead { font-size: 1.1em; } 
+  body,.bout,.gamearea,.lead,h3 { font-size: 1.1em; } 
 }

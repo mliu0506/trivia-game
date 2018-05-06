@@ -1,43 +1,43 @@
 var triviaQuestions = [{
-	question: "Which character does Josh Brolin acting in the film?",
+	question: "Which character does ' <u> Josh Brolin </u> '  acting in the film?",
 	answerList: ["Spider Man", "Iron Man", "Thor", "Thanos"],
 	answer: 3
 },{
-	question: "Which character does Tom Holland acting in the film?",
+	question: "Which character does ' <u> Tom Holland </u> ' acting in the film?",
 	answerList: ["Spider Man", "Captain America", "Black Panther", "Hulk"],
 	answer: 0
 },{
-	question: "Which character does Chris Evans acting in the film?",
+	question: "Which character does ' <u> Chris Evans </u> '  acting in the film?",
 	answerList: ["Captain America", "Doctor Strange", "Loki", "Groot"],
 	answer: 0
 
 },{
-	question: "Which character does Scarlett Johansson acting in the film?",
+	question: "Which character does ' <u> Scarlett Johansson </u> '  acting in the film?",
 	answerList: ["Shuri", "Mantis", "Wanda Maximoff", "Black Widow"],
 	answer: 3
 },{
-	question: "Which character does Tom Hiddleston acting in the film?",
+	question: "Which character does ' <u> Tom Hiddleston </u> '  acting in the film?",
 	answerList: ["Loki", "Heidall", "Collector", "Thor"],
 	answer: 0
 },{
-	question: "Which character does Robert Downey Jr. acting in the film?",
+	question: "Which character does ' <u> Robert Downey Jr. </u> '  acting in the film?",
 	answerList: ["Spider Man", "Iron Man", "Thanos", "Hulk"],
 	answer: 1
 },{
-	question: "Which character does Mark Ruffalo acting in the film?",
+	question: "Which character does ' <u> Mark Ruffalo </u> '  acting in the film?",
 	answerList: ["Black Panther", "Iron Man", "Hulk", "Loki"],
 	answer: 2
 },{
-	question: "Which character does Chris Hemsworth	acting in the film?",
+	question: "Which character does ' <u> Chris Hemsworth </u> ' 	acting in the film?",
 	answerList: ["Thanos", "Spider Man", "Thor", "Clint Barton"],
 	answer: 2
 },{
-	question: "Which character does Chadwick Boseman acting in the film?",
+	question: "Which character does Chadwick Boseman </u> '  acting in the film?",
 	answerList: ["Hulk", "Black Panther", "Thor", "Thanos"],
 	answer: 1
 },{
 
-	question: "Which character does Vin Diesel acting in the film?",
+	question: "Which character does ' <u> Vin Diesel </u> '  acting in the film?",
 	answerList: ["Collector", "Shuri", "Groot", "Hulk"],
 	answer: 2
 
@@ -122,7 +122,8 @@ function answerPage(){
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 	//giphy api
-	var giphyURL = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=dc6zaTOxFJmzC"
+	var giphyURLtmp = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=dc6zaTOxFJmzC"
+	var giphyURL = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=tEE54dfpoCukYKR0F8o9TF2XRjEvdx78"
 	$.ajax({url: giphyURL, method: 'GET'}).done(function(giphy){
 		var currentGif = giphy.data;
 		$.each(currentGif, function(index,value){
