@@ -32,7 +32,7 @@ var triviaQuestions = [{
 	answerList: ["Thanos", "Spider Man", "Thor", "Clint Barton"],
 	answer: 2
 },{
-	question: "Which character does Chadwick Boseman </u> '  acting in the film?",
+	question: "Which character does ' <u> Chadwick Boseman </u> '  acting in the film?",
 	answerList: ["Hulk", "Black Panther", "Thor", "Thanos"],
 	answer: 1
 },{
@@ -45,10 +45,10 @@ var triviaQuestions = [{
 var search = ['thanos', 'spider man', 'captain america', 'black widow', 'loki', 'ironman+mkxlv', 'hulk', 'thor', 'black panther', 'baby groot'];
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect; var timeforscoreboard; var timefornewQuestion;
 var messages = {
-	correct: "Yes, that's right!",
+	correct: "Yes, that's correct!",
 	incorrect: "No, that's not it.",
 	endTime: "Out of time!",
-	finished: "Alright! Let's see how well you did."
+	finished: "All done! Here is how well you did."
 }
 
 $('#gameStart').on('click', function(){
@@ -74,7 +74,7 @@ function newQuestion(){
 	
 	//sets up new questions & answerList
 	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
-	$('.question').html(triviaQuestions[currentQuestion].question);
+	$('.question').html('<h3>'+ triviaQuestions[currentQuestion].question + '</h3>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div class="row col-12 justify-content-center lead">');
 		choices.text(triviaQuestions[currentQuestion].answerList[i]);
@@ -122,7 +122,7 @@ function answerPage(){
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 	//giphy api
-	var giphyURLtmp = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=dc6zaTOxFJmzC"
+
 	var giphyURL = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=tEE54dfpoCukYKR0F8o9TF2XRjEvdx78"
 	$.ajax({url: giphyURL, method: 'GET'}).done(function(giphy){
 		var currentGif = giphy.data;
@@ -134,22 +134,7 @@ function answerPage(){
 		$('#gif').html(newGif);
 		});
 	});
-	//google api
-	
-	/*
-	var googleURL="http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=AAA&callback=?" + search[currentQuestion]
-	
-	$.ajax({url: giphyURL, method: 'GET'}).done(function(giphy){
-		var currentGif = giphy.data;
-		$.each(currentGif, function(index,value){
-		var embedGif = value.images.original.url;
-		newGif = $('<img>');
-		newGif.attr('src', embedGif);
-		newGif.addClass('gifImg');
-		$('#gif').html(newGif);
-		});
-	});
-	*/
+
 	
 	
 	
