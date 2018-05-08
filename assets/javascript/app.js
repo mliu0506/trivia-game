@@ -1,4 +1,5 @@
-var triviaQuestions = [{
+//define the variables
+var Questions = [{
 	question: "Which character does ' <u> Josh Brolin </u> '  acting in the film?",
 	answerList: ["Spider Man", "Iron Man", "Thor", "Thanos"],
 	answer: 3
@@ -43,7 +44,16 @@ var triviaQuestions = [{
 
 }];
 var search = ['thanos', 'spider man', 'captain america', 'black widow', 'loki', 'ironman+mkxlv', 'hulk', 'thor', 'black panther', 'baby groot'];
-var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect; var timeforscoreboard; var timefornewQuestion;
+var currentQuestion; 
+var correctAnswer; 
+var incorrectAnswer; 
+var unanswered; 
+var seconds; 
+var time; 
+var answered; 
+var userSelect; 
+var timeforscoreboard; 
+var timefornewQuestion;
 var messages = {
 	correct: "Yes, that's correct!",
 	incorrect: "No, that's not it.",
@@ -61,11 +71,12 @@ $('#startOverBtn').on('click', function(){
 	newGame();
 });
 
+//Start the new Game
 function newGame(){
-
 	newQuestion();
 }
 
+//Show next question
 function newQuestion(){
 	$('#message').empty();
 	$('#correctedAnswer').empty();
@@ -73,17 +84,18 @@ function newQuestion(){
 	answered = true;
 	
 	//sets up new questions & answerList
-	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
-	$('.question').html('<h3>'+ triviaQuestions[currentQuestion].question + '</h3>');
+	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+Questions.length);
+	$('.question').html('<h3>'+ Questions[currentQuestion].question + '</h3>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div class="row col-12 justify-content-center lead">');
-		choices.text(triviaQuestions[currentQuestion].answerList[i]);
+		choices.text(Questions[currentQuestion].answerList[i]);
 		choices.attr({'data-index': i });
 		choices.addClass('thisChoice');
 		$('.answerList').append(choices);
 	}
 	countdown();
-	//clicking an answer will pause the time and setup answerPage
+
+	//clicking an answer will pause the time and show the answer page
 	$('.thisChoice').on('click',function(){
 		userSelect = $(this).data('index');
 		clearInterval(time);
@@ -92,14 +104,14 @@ function newQuestion(){
 	});
 }
 
+//sets timer to go down for each question (15sec)
 function countdown(){
 	seconds = 15;
 	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	answered = true;
-	//sets timer to go down for each question (15sec)
 	time = setInterval(showCountdown, 1000);
 }
-
+//Show the remaining time
 function showCountdown(){
 	seconds--;
 	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
@@ -107,38 +119,31 @@ function showCountdown(){
 		clearInterval(time);
 		clearInterval(timeforscoreboard);
 		clearInterval(timefornewQuestion);
-
 		answered = false;
 		answerPage();
 	}
 }
 
+//Show the answer page
 function answerPage(){
 	$('#currentQuestion').empty();
 	$('.answerList').empty();
-	$('.thisChoice').empty(); //Clears question page
+	$('.thisChoice').empty(); 
 	$('.question').empty();
 
-	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
-	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-	//giphy api
-
+	var rightAnswerText = Questions[currentQuestion].answerList[Questions[currentQuestion].answer];
+	var rightAnswerIndex = Questions[currentQuestion].answer;
+	
+	
+//call the giphy api by using ajax
 	var giphyURL = "https://api.giphy.com/v1/gifs/search?q=mavel+avengers+infinity war+" + search[currentQuestion] + "&limit=1&rating=g&api_key=tEE54dfpoCukYKR0F8o9TF2XRjEvdx78"
 	$.ajax({url: giphyURL, method: 'GET'}).done(function(giphy){
 		var currentGif = giphy.data;
 		$.each(currentGif, function(index,value){
-		var embedGif = value.images.original.url;
-		newGif = $('<img>');
-		newGif.attr('src', embedGif);
-		newGif.addClass('gifImg');
-		$('#gif').html(newGif);
+		$('#gif').html("<img class='gifImg' src=" + value.images.original.url + ">");
 		});
 	});
 
-	
-	
-	
-	
 	
 	//checks to see correct, incorrect, or unanswered
 	if((userSelect == rightAnswerIndex) && (answered == true)){
@@ -154,17 +159,16 @@ function answerPage(){
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 		answered = true;
 	}
-	
-	if(currentQuestion == (triviaQuestions.length-1)){
-		//Time for Score Board
+	//Time for Score Board
+	if(currentQuestion == (Questions.length-1)){
 		timeforscoreboard = setTimeout(scoreboard, 5000);
 	} else{
+	//Time for New Question
 		currentQuestion++;
-		//Time for New Question
 		timefornewQuestion = setTimeout(newQuestion, 5000);
 	}	
 }
-
+//Show the Final Score Board
 function scoreboard(){
 	$('#timeLeft').empty();
 	$('#message').empty();
@@ -183,7 +187,7 @@ function scoreboard(){
 	$('#startOverBtn').show();
 	$('#startOverBtn').html('Start Over?');
 }
-
+//Reset all values
 function reset() {
 	$('#timeLeft').empty();
 	$('#message').empty();
@@ -191,7 +195,7 @@ function reset() {
 	$('#gif').empty();
 	$('#currentQuestion').empty();
 	$('.answerList').empty();
-	$('.thisChoice').empty(); //Clears question page
+	$('.thisChoice').empty(); 
 	$('.question').empty();
 	$('#finalMessage').empty();
 	$('#correctAnswers').empty();

@@ -9,8 +9,6 @@ body {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-
-
 /*Background */
 .text-vertical-center {
   display: table-cell;
@@ -251,14 +249,12 @@ textarea {
   resize: none;
 }
 
-/* =================== */
-/*    Media Queries    */
-/* =================== */
+
+/* Media Queries  */
 /* xs < 768 */ 
 @media screen and (max-width: 767px) { 
-  body,.bout,.gamearea,.lead,h3 { font-size: 0.9em; }
+  body,.bout,.gamearea,.lead,h3 { font-size: 1em; }
   } 
-
 
 /* sm */ 
 @media screen and (min-width: 768px) { 
